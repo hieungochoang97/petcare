@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care</title>
+    <link rel="stylesheet" href="./font/icofont/icofont/icofont.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <div style="background-color: white;" class="container-fluid app">
+        <div class="row nav">
+                <div class="grid">
+                    <div class="info">
+                        <div class="col-xl-5 info-left pl-0 pr-0">
+                            <i class="icofont-home header-icon"></i>
+                            <span>HOME: Ho Tung Mau, Cau Dien, Ha Noi</span>
+                        </div>
+                        <div class="col-xl-7 info-right">
+                            <div class="info-right-1 item">
+                                <i class="icofont-clock-time header-icon"></i>
+                                <span>Open Mon-Fri: 6:30AM to 7PM, Sat: 8AM to 5PM2</span>
+                            </div>
+                            <div class="info-right-2 item">
+                                <i class="icofont-email header-icon"></i>
+                                <span>admin@petcare.com</span>
+                            </div>
+
+                            
+                            <div class="info-right-3 item">
+                                <!-- Chua login -->
+                                <div id="login" class="hide">
+                                    <i class="icofont-login header-icon pss"></i>
+                                <a style="padding: 0;" href="" class="btn info-link" data-toggle="modal" data-target="#exampleModal">
+                                    Login
+                                </a>
+                                
+                                <!-- Modal login-->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <!--Login-->
+                                          <form>
+                                            <div class="form-group">
+                                              <label for="exampleInputEmail1">Email</label>
+                                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email" value="admin">
+                                              <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẻ email của bạn với bất cứ ai khác.</small>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="exampleInputPassword1">Password</label>
+                                              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="123456">
+                                            </div>
+                                            <div style="padding: 10px 1.25rem;" class="form-check">
+                                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                              <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                                            </div>
+                                            <button id="login-form" onclick="log(); return false;" type="submit" class="btn btn-primary">Đăng nhập</button>
+                                          </form>                    
+                                          <!-- end login-->
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                          <a href="register.html" id="register" class="btn btn-warning">Đăng ký</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- end -->
+                                </div>
+
+                                <!-- Da login -->
+                                <div id="user" class="user">
+                                    <div class="user-avatar">
+                                        <img src="./img/avatar-user.jfif" alt="">
+                                    </div>
+                                    <span><a href="">admin</a>
+                                        <div class="profile">
+                                            <ul class="profile-list mb-0">
+                                                <li class="profile-item">
+                                                    <a href=""><i class="icofont-user-alt-7"></i>Quản lý tài khoản</a>
+                                                </li>
+                                                <li class="profile-item">
+                                                    <a href=""><i class="icofont-file-alt"></i>Đơn hàng của tôi</a>
+                                                </li>
+                                                <li class="profile-item">
+                                                    <a href=""><i class="icofont-ui-love"></i>Danh sách yêu thích</a>
+                                                </li>
+                                                <li class="profile-item">
+                                                    <a onclick='logOut(); return false;' id="logout" href=""><i class="icofont-logout"></i>Đăng xuất</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <header class="header">
+                <div class="row" style="background-color: #271A1B;">
+                    <div class="grid">
+                        <div class="col-xl-5 logo">
+                           <a href="index.html"><img style="width: 100px;" src="./img/logo.png" alt="logo"></a>
+                        </div>
+                        <div class="col-xl-7 contact">
+                            <div class="phone align-item">
+                                <i class="icofont-phone-circle contact-icon"></i>
+                                <span style="color: #DDD;">Call Us</span>
+                                <a style="color: white; padding-left: 5px;" href="">0347.4703.96</a>
+                            </div>
+                            <div class="cart align-item">
+                                <span class="align-item">Giỏ Hàng<i class="icofont-cart-alt contact-icon"></i>
+                                   <!-- Cart --> 
+                                   <div class="cart-product">
+                                        <h4 class="cart-product-heading">Giỏ hàng của bạn</h4>
+                                        <p class="cart-product-des unhide">Hiện chưa có sản phẩm</p>
+                                   </div>
+                                </span>
+                            </div>
+                            <div class="search align-item">
+                                <i class="icofont-search-2 contact-icon small"></i>
+                                <div class="search-box">
+                                    <nav class="navbar navbar-light bg-light">
+                                        <form class="form-inline">
+                                          <input class="form-control mr-sm-2" type="search" placeholder="Tim kiem..." aria-label="Search">
+                                          <button class="btn btn-outline-success my-2 my-sm-0 btn-search" type="submit">Search</button>
+                                        </form>
+                                      </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </header>
+        <div class="row main-menu">
+                <div class="grid">
+                    <ul class="menu-list">
+                        <li class="menu-item bg-active">
+                            <i class="icofont-navigation-menu"></i> <a href="">Danh mục sản phẩm</a>
+                            <div class="submenu">
+                                <ul class="submenu-list">
+                                    <li class="submenu-item">
+                                        <i class="icofont-dog"></i>
+                                        <a href="">Shop cho chó</a> 
+                                        <i class="icofont-curved-right submenu-icon"></i>
+                                        <div class="submenu-dog">
+                                            <h1 class="text-center">Comming Soon</h1>
+                                        </div>
+                                    </li>
+                                    <li class="submenu-item">
+                                        <i class="icofont-cat-alt-3"></i>
+                                        <a href="">Shop cho mèo</a>
+                                        <i class="icofont-curved-right submenu-icon"></i>
+                                        <div class="submenu-cat">
+                                            <h1 class="text-center">Comming Soon</h1>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <a href="">Trang chủ</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="">Shop cho chó</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="">Shop cho mèo</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="">Tin tức</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="">Giới thiệu</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-xl-12 p-0">
+                    <div id="slide" class="slide">
+                        <img id="slide1" class="slide-name" src="./img/slide1.jpg" alt="">
+                        <img id="slide2" class="slide-name" src="./img/slide2.jpg" alt="">
+                        <img id="slide3" class="slide-name" src="./img/slide3.jpg" alt="">
+                        <img id="slide4" class="slide-name" src="./img/slide4.jpg" alt="">
+                        <img id="slide5" class="slide-name" src="./img/slide5.jpg" alt="">
+                        <div class="btn-slide">
+                            <button id="pre" onclick="pre()" class="btn btn-primary"><i class="icofont-curved-left"></i></button>
+                            <button id="next" onclick="next();" class="btn btn-primary"><i class="icofont-curved-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="meow">
+                        <div class="grid">
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <div class="sale">
+                                        <img src="./img/slider-dog-small.png" alt="">
+                                        <div class="sale-info">
+                                            <h3>Tiết Kiệm</h3>
+                                            <h1>25%</h1>
+                                            <p>Thức ăn chó mèo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div style="background-color: #AAC31E;" class="sale">
+                                        <img style="width: 210px; height: 179px;" src="./img/slider-cat.png" alt="">
+                                        <div style="position: absolute; left: 150px;" class="sale-info">
+                                            <h3>Tư Vấn</h3>
+                                            <h1>Miễn Phí</h1>
+                                           <a href="">Tư vấn <i class="icofont-rounded-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div style="background-color: #78DAE6;" class="sale">
+                                        <img style="width: 180px; height: 160px; margin-top: 12px;" src="./img/slider-dog.png" alt="">
+                                        <div style="position: absolute; left: 180px;" class="sale-info">
+                                            <h3>Tiết kiệm đến</h3>
+                                            <h1>45%</h1>
+                                           <a href="">Nhiều hơn <i class="icofont-rounded-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="grid">
+                <div class="row product">
+                    <h1 style="width: 100%; padding: 40px 0;" class="title display-4 text-center col-xl-12">Sản phẩm hiện tại</h1>
+                    <div class="col-xl-3">
+                        <daiv class="cart-group">
+                            <div class="cart">
+                                <img class="cart-img" style="width: 100%" src="./img/sec3-1.jpg" alt="">
+                            </div>
+                            <a href="./product.html" class="card">
+                                <div class="card-body cart-shadow">
+                                    <h5 class="card-title text-center font-weight-bold small text-secondary">Phụ kiện</h5>
+                                    <p class="card-text text-center">Cổ áo da nguyên bản</p>
+                                    <h4 style="margin-bottom: 42px" class="cart-text text-center text-warning font-weight-bold">$130.00</h4>
+                                    <button type="button" class="btn btn-light btn-product">Giỏ Hàng</button>
+                                  </div>
+                            </a>
+                    </div>
+                        <div class="col-xl-3">
+                            <div class="cart-group">
+                                <div class="cart">
+                                    <img class="cart-img" style="width: 100%" src="./img/sec3-2.jpg" alt="">
+                                </div>
+                                <a href="./product.html" class="card">
+                                    <div class="card-body cart-shadow">
+                                        <h5 class="card-title text-center font-weight-bold small text-secondary">Phụ kiện</h5>
+                                        <p class="card-text text-center">Giường thú cưng</p>
+                                        <h4 style="margin-bottom: 42px" class="cart-text text-center text-warning font-weight-bold">$155.00</h4>
+                                        <button type="button" class="btn btn-light btn-product">Giỏ Hàng</button>
+                                      </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="cart-group">
+                                <div class="cart">
+                                    <img class="cart-img" style="width: 100%" src="./img/sec3-3.jpg" alt="">
+                                </div>
+                                <a href="./product.html" class="card">
+                                    <div class="card-body cart-shadow">
+                                        <h5 class="card-title text-center font-weight-bold small text-secondary">Phụ kiện</h5>
+                                        <p class="card-text text-center">Mèo và chó nhỏ</p>
+                                        <h4 style="margin-bottom: 42px" class="cart-text text-center text-warning font-weight-bold">$45.00</h4>
+                                        <button type="button" class="btn btn-light btn-product">Giỏ Hàng</button>
+                                      </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="cart-group">
+                                <div class="cart">
+                                    <img class="cart-img" style="width: 100%" src="./img/sec3-4.jpg" alt="">
+                                </div>
+                                <a href="./product.html" class="card">
+                                    <div class="card-body cart-shadow">
+                                        <h5 class="card-title text-center font-weight-bold small text-secondary">Phụ kiện</h5>
+                                        <p class="card-text text-center">Áo khoác mùa đông</p>
+                                        <h4 style="margin-bottom: 42px" class="cart-text text-center text-warning font-weight-bold">$730.00</h4>
+                                        <button type="button" class="btn btn-light btn-product">Giỏ Hàng</button>
+                                      </div>
+                                </a>
+                            </div>
+                        </div>
+                </div>
+        </div>
+        <div class="sponsor">
+                <div class="grid">
+                    <div class="row">
+                        <div class="col-xl-3">
+                           <a style="margin-left: 36px;" href=""><img src="./img/ntt1.png" alt=""></a>
+                        </div>
+                        <div class="col-xl-3">
+                            <a style="margin-left: 36px;" href=""><img src="./img/ntt2.png" alt=""></a>
+                        </div>
+                        <div class="col-xl-3">
+                            <a style="margin-left: 36px;" href=""><img src="./img/ntt3.png" alt=""></a>
+                        </div>
+                        <div class="col-xl-3">
+                            <a style="margin-left: 36px;" href=""><img src="./img/ntt4.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="grid">
+                <div class="row product">
+                    <h1 style="width: 100%; padding: 40px 0;" class="title display-4 text-center col-xl-12">Sản phẩm hiện tại</h1>
+                    <div class="col-xl-3">
+                        <daiv class="cart-group">
+                            <div class="cart">
+                                <img class="cart-img" style="width: 100%" src="./img/sec3-1.jpg" alt="">
+                            </div>
+                            <a href="./product.html" class="card">
+                                <div class="card-body cart-shadow">
+                                    <h5 class="card-title text-center font-weight-bold small text-secondary">Phụ kiện</h5>
+                                    <p class="card-text text-center">Cổ áo da nguyên bản</p>
+                                    <h4 style="margin-bottom: 42px" class="cart-text text-center text-warning font-weight-bold">$130.00</h4>
+                                    <button type="button" class="btn btn-light btn-product">Giỏ Hàng</button>
+                                  </div>
+                            </a>
+                    </div>
+                        <div class="col-xl-3">
+                            <div class="cart-group">
+                                <div class="cart">
+                                    <img class="cart-img" style="width: 100%" src="./img/sec3-2.jpg" alt="">
+                                </div>
+                                <a href="./product.html" class="card">
+                                    <div class="card-body cart-shadow">
+                                        <h5 class="card-title text-center font-weight-bold small text-secondary">Phụ kiện</h5>
+                                        <p class="card-text text-center">Giường thú cưng</p>
+                                        <h4 style="margin-bottom: 42px" class="cart-text text-center text-warning font-weight-bold">$155.00</h4>
+                                        <button type="button" class="btn btn-light btn-product">Giỏ Hàng</button>
+                                      </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="cart-group">
+                                <div class="cart">
+                                    <img class="cart-img" style="width: 100%" src="./img/sec3-3.jpg" alt="">
+                                </div>
+                                <a href="./product.html" class="card">
+                                    <div class="card-body cart-shadow">
+                                        <h5 class="card-title text-center font-weight-bold small text-secondary">Phụ kiện</h5>
+                                        <p class="card-text text-center">Mèo và chó nhỏ</p>
+                                        <h4 style="margin-bottom: 42px" class="cart-text text-center text-warning font-weight-bold">$45.00</h4>
+                                        <button type="button" class="btn btn-light btn-product">Giỏ Hàng</button>
+                                      </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="cart-group">
+                                <div class="cart">
+                                    <img class="cart-img" style="width: 100%" src="./img/sec3-4.jpg" alt="">
+                                </div>
+                                <a href="./product.html" class="card">
+                                    <div class="card-body cart-shadow">
+                                        <h5 class="card-title text-center font-weight-bold small text-secondary">Phụ kiện</h5>
+                                        <p class="card-text text-center">Áo khoác mùa đông</p>
+                                        <h4 style="margin-bottom: 42px" class="cart-text text-center text-warning font-weight-bold">$730.00</h4>
+                                        <button type="button" class="btn btn-light btn-product">Giỏ Hàng</button>
+                                      </div>
+                                </a>
+                            </div>
+                        </div>
+                </div>
+        </div>
+        <div class="grid" style="margin-bottom: 50px;">
+                <div class="row">               
+                    <div class="col-xl-6">
+                        <a class="shipping">
+                            <h1 class="text-center shipping-heading">Giảm thêm 40%</h1>
+                            <p class="text-center m-0 shipping-des">Trên hóa đơn $100, sử dụng mã giảm giá</p>
+                        </a>
+                    </div>
+                    <div class="col-xl-6">
+                        <a style="background-color: #A5C21C;" class="shipping">
+                            <h1 class="text-center shipping-heading">Miễn phí Ship</h1>
+                            <p class="text-center m-0 shipping-des">Trên hóa đơn $45~ có giới hạn</p>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <div class="grid">
+                <div class="product">
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <h5 class="product-list">Sản phẩm giảm giá</h5>
+                            <ul class="product-list">
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/food_2-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Thức ăn bình thường</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/Irene-Cage-1-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Lồng Irene</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/sec3-3-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Mèo và chó nhỏ</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-3">
+                            <h5 class="product-list">Sản phẩm mới</h5>
+                            <ul class="product-list">
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/sec3-1-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Áo cổ da nguyên bản</a> <br>
+                                        <span class="small price-old hide">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/sec3-2-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Giường thú cưng</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/sec3-3-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Mèo và chó nhỏ</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-3">
+                            <h5 class="product-list">Sản phẩm mua nhiều</h5>
+                            <ul class="product-list">
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/food_2-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Thức ăn bình thường</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/Irene-Cage-1-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Lồng Irene</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/sec3-3-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Mèo và chó nhỏ</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-3">
+                            <h5 class="product-list">Sản phẩm tự chọn</h5>
+                            <ul class="product-list">
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/food_2-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Thức ăn bình thường</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/Irene-Cage-1-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Lồng Irene</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <img class="product-img" src="./img/sec3-3-150x150.jpg" alt="">
+                                    <div class="product-link">
+                                        <a class="small product-title" href="">Mèo và chó nhỏ</a> <br>
+                                        <span class="small price-old">500.000đ</span>
+                                        <span class="price-new">400.000đ</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <footer class="footer">
+                <div class="grid">
+                    <div class="row pb-5">
+                        <div class="col-xl-3">
+                            <img class="footer-logo" src="./img/logo.png" alt="">
+                            <p>Đăng ký để nhận được được thông tin mới nhất từ chúng tôi.</p>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary" type="button"><i style="color: white;" class="icofont-send-mail footer-icon"></i></button>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <h4 class="pb-2 font-weight-bold">Liên Hệ</h4>
+                            <ul class="footer-list">
+                                <li style="color: #949292;" class="footer-item mb-3 pb-1">
+                                    <i style="color: white; padding-right: 10px;" class="icofont-google-map footer-icon"></i>
+                                    319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM
+                                </li>
+                                <li class="footer-item pb-1">
+                                    <i class="icofont-ui-touch-phone footer-icon-menu"></i>
+                                    <a href="" class="footer-link">0347.4703.96</a>
+                                </li>
+                                <li class="footer-item pb-1">
+                                    <i class="icofont-email footer-icon-menu"></i>
+                                    <a href="" class="footer-link">hieungochoang97@gmail.com</a>
+                                </li>
+                                <li class="footer-item pb-1">
+                                    <i class="icofont-facebook footer-icon-menu"></i>
+                                    <a href="" class="footer-link">hoangngochieu97</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-3">
+                            <h4 class="pb-2 font-weight-bold">Hỗ trợ</h4>
+                            <ul class="footer-list">
+                               <li class="footer-item pb-1"><a href="" class="footer-link text-white footer-link-hover">FAQ</a></li>
+                               <li class="footer-item pb-1"><a href="" class="footer-link text-white footer-link-hover">Chăm sóc khách hàng</a></li>
+                               <li class="footer-item pb-1"><a href="" class="footer-link text-white footer-link-hover">Vận chuyển và Đổi trả hàng</a></li>
+                               <li class="footer-item pb-1"><a href="" class="footer-link text-white footer-link-hover">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-3">
+                            <h4 class="pb-2 font-weight-bold">Thông tin</h4>
+                            <p>Trong những năm tới, người nostrud tập thể dục, khu học chánh có thể không hoạt động aliquip.</p>
+                            <ul class="social">
+                                <li class="social-item bg-primary"><a class="text-white" href=""><i class="icofont-facebook"></i></a></li>
+                                <li class="social-item bg-secondary"><a class="text-white" href=""><i class="icofont-instagram"></i></a></li>
+                                <li class="social-item bg-info"><a class="text-white" href=""><i class="icofont-twitter"></i></a></li>
+                                <li class="social-item bg-danger"><a class="text-white" href=""><i class="icofont-flikr"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="coder">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <p class="text-center code-des">&copy Bản quyền thuộc về <a style="color: white;" href="">admin</a>. Thiết kế website: P103 Team</p>
+                        </div>
+                    </div>
+                </div>
+        </footer>
+    </div>
+</div>
+</body>
+</html>

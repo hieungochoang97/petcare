@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care Product</title>
+    <link rel="stylesheet" href="./font/icofont/icofont/icofont.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <div style="background-color: white;" class="container-fluid">
+        <div class="row nav">
+            <div class="grid">
+                <div class="info">
+                    <div class="col-xl-5 info-left pl-0 pr-0">
+                        <i class="icofont-home header-icon"></i>
+                        <span>HOME:Ho Tung Mau, Cau Dien, Ha Noi</span>
+                    </div>
+                    <div class="col-xl-7 info-right">
+                        <div class="info-right-1 item">
+                            <i class="icofont-clock-time header-icon"></i>
+                            <span>Open Mon-Fri: 6:30AM to 7PM, Sat: 8AM to 5PM2</span>
+                        </div>
+                        <div class="info-right-2 item">
+                            <i class="icofont-email header-icon"></i>
+                            <span>admin</span>
+                        </div>
+
+                        
+                        <div class="info-right-3 item">
+                            <!-- Chua login -->
+                            <div class="hide">
+                                <i class="icofont-login header-icon"></i>
+                            <a style="padding: 0;" type="button" class="btn info-link" data-toggle="modal" data-target="#exampleModal">
+                                Login
+                            </a>
+                            
+                            <!-- Modal login-->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <!--Login-->
+                                      <form>
+                                        <div class="form-group">
+                                          <label for="exampleInputEmail1">Email</label>
+                                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
+                                          <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẻ email của bạn với bất cứ ai khác.</small>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="exampleInputPassword1">Password</label>
+                                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        </div>
+                                        <div style="padding: 10px 1.25rem;" class="form-check">
+                                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                          <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                                        </div>
+                                        <button id="login" onclick="getAccount(); return false;" type="submit" class="btn btn-primary">Đăng nhập</button>
+                                      </form>                    
+                                      <!-- end login-->
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                      <a href="register.html" id="register" type="button" class="btn btn-warning">Đăng ký</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- end -->
+                            </div>
+
+                            <!-- Da login -->
+                            <div class="user">
+                                <div class="user-avatar">
+                                    <img src="./img/avatar-user.jfif" alt="">
+                                </div>
+                                <span><a href="">hieungochoang97</a>
+                                    <div class="profile">
+                                        <ul class="profile-list mb-0">
+                                            <li class="profile-item">
+                                                <a href=""><i class="icofont-user-alt-7"></i>Quản lý tài khoản</a>
+                                            </li>
+                                            <li class="profile-item">
+                                                <a href=""><i class="icofont-file-alt"></i>Đơn hàng của tôi</a>
+                                            </li>
+                                            <li class="profile-item">
+                                                <a href=""><i class="icofont-ui-love"></i>Danh sách yêu thích</a>
+                                            </li>
+                                            <li class="profile-item">
+                                                <a href=""><i class="icofont-logout"></i>Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header">
+            <div class="row" style="background-color: #271A1B;">
+                <div class="grid rp-flex">
+                    <div class="col-xl-5 col-md-3 col-2 logo">
+                       <a href="index.html"><img class="logo-img" src="./img/logo.png" alt="logo"></a>
+                    </div>
+                    <div class="col-xl-7 col-md-9 col-10 contact">
+                        <div class="phone align-item">
+                            <i class="icofont-phone-circle contact-icon"></i>
+                            <span style="color: #DDD;">Call Us</span>
+                            <a style="color: white; padding-left: 5px;" href="">0347.4703.96</a>
+                        </div>
+                        <div class="cart align-item">
+                            <span class="align-item" href="">Giỏ Hàng<i class="icofont-cart-alt contact-icon"></i>
+                               <!-- Cart --> 
+                               <div class="cart-product">
+                                    <h4 class="cart-product-heading">Giỏ hàng của bạn</h4>
+                                    <p class="cart-product-des unhide">Hiện chưa có sản phẩm</p>
+                                    <div class="list-product hide">
+                                        <div class="row">
+                                            <div class="col-xl-2">
+                                                <img class="product-img product-img-border" src="./img/sec3-2-150x150.jpg" alt="">
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <h4 class="small pt-2 product-name">Thức ăn bình thường</h4>
+                                                <p class="product-des">Ăn vào sẽ rất no và nhiều chất dinh dưỡng</p>
+                                            </div>
+                                            <div class="col-xl-3 amount-pos">
+                                                <div class="amount">
+                                                    <button v-on:click='decrease' class="btn btn-danger">-</button>
+                                                    <input v-bind:value='{{ num }}' class="form-control text-center" type="text">
+                                                    <button class="btn btn-success">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <a class="del" href=""><i class="icofont-delete-alt"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-2">
+                                                <img class="product-img product-img-border" src="./img/sec3-2-150x150.jpg" alt="">
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <h4 class="small pt-2 product-name">Thức ăn bình thường</h4>
+                                                <p class="product-des">Ăn vào sẽ rất no và nhiều chất dinh dưỡng</p>
+                                            </div>
+                                            <div class="col-xl-3 amount-pos">
+                                                <div class="amount">
+                                                    <button v-on:click='decrease' class="btn btn-danger">-</button>
+                                                    <input v-bind:value='{{ num }}' class="form-control text-center" type="text">
+                                                    <button class="btn btn-success">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <a class="del" href=""><i class="icofont-delete-alt"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-2">
+                                                <img class="product-img product-img-border" src="./img/sec3-2-150x150.jpg" alt="">
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <h4 class="small pt-2 product-name">Thức ăn bình thường</h4>
+                                                <p class="product-des">Ăn vào sẽ rất no và nhiều chất dinh dưỡng</p>
+                                            </div>
+                                            <div class="col-xl-3 amount-pos">
+                                                <div class="amount">
+                                                    <button v-on:click='decrease' class="btn btn-danger">-</button>
+                                                    <input v-bind:value='{{ num }}' class="form-control text-center" type="text">
+                                                    <button class="btn btn-success">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <a class="del" href=""><i class="icofont-delete-alt"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-2">
+                                                <img class="product-img product-img-border" src="./img/sec3-2-150x150.jpg" alt="">
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <h4 class="small pt-2 product-name">Thức ăn bình thường</h4>
+                                                <p class="product-des">Ăn vào sẽ rất no và nhiều chất dinh dưỡng</p>
+                                            </div>
+                                            <div class="col-xl-3 amount-pos">
+                                                <div class="amount">
+                                                    <button v-on:click='decrease' class="btn btn-danger">-</button>
+                                                    <input v-bind:value='{{ num }}' class="form-control text-center" type="text">
+                                                    <button class="btn btn-success">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <a class="del" href=""><i class="icofont-delete-alt"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-2">
+                                                <img class="product-img product-img-border" src="./img/sec3-2-150x150.jpg" alt="">
+                                            </div>
+                                            <div class="col-xl-5">
+                                                <h4 class="small pt-2 product-name">Thức ăn bình thường</h4>
+                                                <p class="product-des">Ăn vào sẽ rất no và nhiều chất dinh dưỡng</p>
+                                            </div>
+                                            <div class="col-xl-3 amount-pos">
+                                                <div class="amount">
+                                                    <button v-on:click='decrease' class="btn btn-danger">-</button>
+                                                    <input v-bind:value='{{ num }}' class="form-control text-center" type="text">
+                                                    <button class="btn btn-success">+</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-2">
+                                                <a class="del" href=""><i class="icofont-delete-alt"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="search align-item">
+                            <i class="icofont-search-2 contact-icon small"></i>
+                            <div class="search-box">
+                                <nav class="navbar navbar-light bg-light">
+                                    <form class="form-inline">
+                                      <input class="form-control mr-sm-2" type="search" placeholder="Tim kiem..." aria-label="Search">
+                                      <button class="btn btn-outline-success my-2 my-sm-0 btn-search" type="submit">Search</button>
+                                    </form>
+                                  </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="row main-menu">
+            <div class="grid">
+                <ul class="menu-list">
+                    <li class="menu-item bg-active">
+                        <i class="icofont-navigation-menu"></i> <a href="">Danh mục sản phẩm</a>
+                        <div class="submenu">
+                            <ul class="submenu-list">
+                                <li class="submenu-item">
+                                    <i class="icofont-dog"></i>
+                                    <a href="">Shop cho chó</a> 
+                                    <i class="icofont-curved-right submenu-icon"></i>
+                                    <div class="submenu-dog">
+                                        <h1 class="text-center">Comming Soon</h1>
+                                    </div>
+                                </li>
+                                <li class="submenu-item">
+                                    <i class="icofont-cat-alt-3"></i>
+                                    <a href="">Shop cho mèo</a>
+                                    <i class="icofont-curved-right submenu-icon"></i>
+                                    <div class="submenu-cat">
+                                        <h1 class="text-center">Comming Soon</h1>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="">Trang chủ</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="">Shop cho chó</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="">Shop cho mèo</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="">Tin tức</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="">Giới thiệu</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 pl-0 pr-0">
+                    <div class="alert alert-secondary shortcut" role="alert">
+                        <a class="product-shortcut" href="">Pet care</a>
+                        <i class="icofont-curved-right"></i>
+                        <a class="product-shortcut" href="">thức ăn cho mèo</a>
+                        <i class="icofont-curved-right"></i>
+                        <a class="product-shortcut" href="">thức ăn mới</a>
+                        <i class="icofont-curved-right"></i>
+                        <a class="product-shortcut" href="">bột xe-ta-rua</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-3 flex-product">
+                <div class="col-xl-5 col-md-4 text-center">
+                    <img class="img-product hide-mb" src="./img/sec3-2.jpg" alt="">
+                </div>
+                <div class="col-xl-7 col-md-8">
+                    <h4>Thức ăn cho chó cưng</h4>
+                    <div class="rating mt-3">
+                        <div class="rating-point pr-2 pd-star">
+                            <a href="">5.0</a>
+                            <a href=""><i class="icofont-star"></i></a>
+                            <a href=""><i class="icofont-star"></i></a>
+                            <a href=""><i class="icofont-star"></i></a>
+                            <a href=""><i class="icofont-star"></i></a>
+                            <a href=""><i class="icofont-star"></i></a>
+                        </div>
+                        <div class="comment pr-2 pl-2 pd-star">
+                            <a href="">91</a>
+                            <p>Đánh giá</p>
+                        </div>
+                        <div class="comment pr-2 pl-2 pd-star">
+                            <a href="">555</a>
+                            <p>Đã bán</p>
+                        </div>
+                    </div>
+                    <div class="price mt-2">
+                        <p class="old-price">1.999.999đ</p>
+                        <p class="new-price">899.999đ</p>
+                        <p class="sale-price">34% giảm</p>
+                    </div>
+                    <div class="row ship mt-2">
+                        <div class="col-xl-3 col-md-3 col-6">
+                            <p class="ship-code p-1">Vận chuyển</p>
+                        </div>
+                        <div class="col-xl-9 col-md-9 col-6 bd-b">
+                            <i class="icofont-free-delivery ship-img"></i>
+                            <span class="ship-des">Miễn Phí Vận Chuyển -
+                                Miễn Phí Vận Chuyển khi đơn đạt giá trị tối thiểu.</span>
+                        </div>
+                    </div>
+                    <div class="row ship mt-2">
+                        <div class="col-xl-3 col-md-3 col-6">
+                            <p class="ship-code p-1">Phí ship</p>
+                        </div>
+                        <div class="col-xl-9 col-md-9 col-6 bd-b">
+                            <i class="icofont-money ship-img"></i>
+                            <span class="ship-des"><span class="small-text">₫</span>26.000 - <span class="small-text">₫</span>55.000</span>
+                        </div>
+                    </div>
+                    <div class="row ship mt-2">
+                        <div class="col-xl-3 col-md-3 col-6">
+                            <p class="ship-code p-1">Địa chỉ</p>
+                        </div>
+                        <div class="col-xl-9 col-md-9 col-6 bd-b">
+                            <i class="icofont-map-pins ship-img"></i>
+                            <span class="ship-des">Nam Từ Liêm, Hà Nội</span>
+                        </div>
+                    </div>
+                    <div class="row ship mt-2">
+                        <div class="col-xl-3 col-md-3 col-6">
+                            <p class="ship-code p-1">Số lượng</p>
+                        </div>
+                        <div class="col-xl-9 col-md-9 col-6">
+                            <button class="btn">-</button>
+                            <input style='width: 30px; text-align: center; border:none;' type="text" value="1">
+                            <button class="btn">+</button>
+                        </div>
+                        <div class="buy">
+                            <button class="btn btn-danger">Thêm vào giỏ hàng</button>
+                            <a href="pay.html" style="color: white;" class="btn btn-primary">Mua ngay</a>
+                        </div>
+                    </div>
+                    <div class="row mt-4 service">
+                        <div class="col-xl-4 col-md-4">
+                            <i class="icofont-long-arrow-left"></i>
+                            <span>7 ngày miễn phí trả hàng</span>
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                            <i class="icofont-tick-boxed"></i>
+                            <span>Hàng chính hãng 100%</span>
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                            <i class="icofont-free-delivery"></i>
+                            <span>Miễn phí vận chuyển</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="detail bg-light p-2">
+                        <h5>Chi tiết sản phẩm</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="category">
+                    <div class="category-detail">
+                        <span>Danh Mục</span>
+                        <a href="">Pet Care</a>
+                        <i class="icofont-curved-right"></i>
+                        <a href="">thức ăn cho mèo</a>
+                        <i class="icofont-curved-right"></i>
+                        <a href="">thức ăn mới</a>
+                        <i class="icofont-curved-right"></i>
+                        <a href="">bột te-xa-rua</a>
+                    </div>
+                    <div class="category-detail">
+                        <span>Thương Hiệu</span>
+                        <a href="">Bongg Dog</a>
+                    </div>
+                    <div class="category-detail">
+                        <span>Bảo Hành</span>
+                        <p>6 tháng</p>
+                    </div>
+                    <div class="category-detail">
+                        <span>Tồn Kho</span>
+                        <p>29</p>
+                    </div>
+                    <div class="category-detail">
+                        <span>Gửi Từ</span>
+                        <p>Thái Nguyên</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="detail bg-light p-2">
+                        <h5>MÔ TẢ SẢN PHẨM</h5>
+                    </div>
+
+                   <div class="detail-info">
+                        <p class="description">
+                            Tùy từng thời kì phát triển của thú cưng mà có những loại thức ăn khác nhau. Đối với mèo nhỏ, những chú mèo sau khi cai sữa từ 2-12 tháng, hệ tiêu hóa của chúng vẫn còn yếu và khó hấp thụ thức ăn hơn  cả vì thế cần một loại thức ăn riêng phù hợp với hệ tiêu hóa và phát triển của mèo con. Đọc bài viết và tham khảo sản phẩm Thức Ăn Cho Mèo Con Catsrang Kitten 400g nhé! 
+                        </p>
+
+                        <h5>Thông Tin Sản Phẩm Thức Ăn Cho Mèo Con Catsrang Kitten 400g</h5>
+                        <ul>
+                            <li>
+                               <p>
+                                Thức Ăn Cho Mèo Con Catsrang Kitten 400g là dòng thức ăn dành riêng cho mèo nhỏ được nhập khẩu trực tiếp từ Hàn Quốc và được nghiên cứu là phù hợp với sự phát triển của mèo con.
+                               </p>
+                            </li>
+                            <li>
+                                <p>Trọng lượng: gói 400g </p>
+                            </li>
+                            <li>
+                                <p>Thương hiệu: Catsrang</p>
+                            </li>
+                            <li>
+                                <p> Xuất xứ: Hàn Quốc</p>
+                            </li>
+                            <li>
+                                <p> Đối tượng sử dụng: Catsrang Kitten 400g là dòng thức ăn khô dành riêng cho mèo con được nhập khẩu từ Hàn Quốc. Sản phẩm đặc biệt phù hợp với thể trạng của mèo con.</p>
+                            </li>
+                        </ul>
+
+                        <h5>Thành Phần</h5>
+                        <p>
+                            Bột thịt gà, bột cá, gạo, muối, mỡ gà, bột ngô, củ cải đường, oggurten,hạt lanh, bột thịt ức gà, men bla, axit amin, L-lysine, taurine, choline, fructooligo-sacharide, chiết xuất hoa hồng, chiết xuất hoa yucca, vitamin A D E K và các vitamin không hòa tan (B1, B2, B3, B5, B6, B7, B12).
+                        </p>
+                        <h5>Hàm Lượng Dinh Dưỡng</h5>
+                        <ul>
+                            <li>
+                                <p><b>Chất đạm</b>: 34%</p>
+                            </li>
+                            <li>
+                                <p><b>Chất béo</b>: 18%</p>
+                            </li>
+                            <li>
+                                <p><b>Chất xơ</b>: 3%</p>
+                            </li>
+                            <li>
+                                <p><b>Độ ẩm</b>: 10%</p>
+                            </li>
+                        </ul>
+                   </div>
+                </div>
+                <div class="col-xl-12 text-center">
+                    <img src="./img/sec3-2.jpg" alt="">
+                </div>
+                <div class="col-xl-12">
+                    <div class="detail-info">
+                        <h5>Ưu Điểm Của Thức Ăn Cho Mèo Con Catsrang Kitten 400g</h5>
+                        <ul>
+                            <li>
+                               <p>
+                                Thức ăn khô dành riêng cho mèo con với công thức được nghiên cứu giúp cung cấp đầy đủ chất dinh dưỡng để mèo con phát triển toàn diện. Với đặc tính dễ tiêu hóa, Thức Ăn Cho Mèo Con Catsrang Kitten 400g có những công dụng sau đây:
+                               </p>
+                            </li>
+                            <li>
+                                <p>- Thức ăn Catsrang chứa taurine, vitamin và các chất dinh dưỡng cần thiết khác giúp tăng cường hệ miễn dịch. </p>
+                            </li>
+                            <li>
+                                <p>- Đã chứa đủ chất dinh dưỡng cho mèo. Ngoài ra còn bổ sung các vitamin A, C, D, E và các khoáng chất, giúp mèo phát triển toàn diện và khoẻ mạnh.</p>
+                            </li>
+                            <li>
+                                <p>- Các thành phần trong Thức Ăn Cho Mèo Con Catsrang Kitten 400g có thể loại bỏ búi lông trong dạ dày của mèo.</p>
+                            </li>
+                            <li>
+                                <p>- “Boss” sẽ có bộ lông mềm mượt hơn nhờ các omega có trong thức ăn.</p>
+                            </li>
+                            <li>
+                                <p>- Kích thước hạt nhỏ vừa phải, thuận tiện hơn cho các bé mèo.</p>
+                            </li>
+                            <li>
+                                <p>- Ăn thức ăn Catsrang, mèo sẽ đi phân rắn và giảm mùi hôi rõ rệt.</p>
+                            </li>
+                        </ul>
+
+                        <h5>Cách Dùng Thức Ăn Cho Mèo Con Catsrang Kitten 400g</h5>
+                        <ul>
+                            <li>
+                                <p>- Lượng thức ăn cho mèo còn phải tuỳ thuộc vào cân nặng của mèo và độ tuổi của chúng. Bạn nên nhờ người bán tư vấn để xác định được lượng thức ăn phù hợp. Hoặc bạn chỉ cần theo dõi khẩu phần ăn hàng ngày của bé mèo để ước lượng một lượng thức ăn phù hợp nhất. </p>
+                            </li>
+                            <li>
+                                <p>- Có thể cho mèo ăn trực tiếp Thức Ăn Cho Mèo Con Catsrang Kitten 400g, hoặc trộn với cơm cho các "boss". Với các loại thức ăn khô, hãy luôn chuẩn bị đầy đủ nước uống cho bé miu nhé. Với những bé mèo con có thể cho thức ăn khô ngâm vào nước hoặc sữa cho mềm cho bé mèo dễ ăn.</p>
+                            </li>
+                            <li>
+                                <p>- Bảo quản sản phẩm ở nơi khô ráo, thoáng mát.</p>
+                            </li>
+                        </ul>
+                        <h5><i>Chúc bạn lựa chọn được sản phẩm phù hợp với thú cưng của mình!</i></h5>
+                   </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 mt-5 col-md-12">
+                    <div class="alert alert-danger rate" role="alert">
+                        <div class="rate-star">
+                            <p class="text-center mb-0"><span>4.8 </span>trên 5.0</p>
+                            <div class="star">
+                                <i class="icofont-star"></i>
+                                <i class="icofont-star"></i>
+                                <i class="icofont-star"></i>
+                                <i class="icofont-star"></i>
+                                <i class="icofont-star"></i>
+                            </div>
+                        </div>
+                        <div class="category-star">
+                            <button class="btn active">Tất Cả</button>
+                            <button class="btn">5 Sao (24)</button>
+                            <button class="btn">4 Sao (2)</button>
+                            <button class="btn">3 Sao (0)</button>
+                            <button class="btn">2 Sao (0)</button>
+                            <button class="btn">1 Sao (0)</button>
+                            <button class="btn">Có Bình Luận (10)</button>
+                            <button class="btn">Có Hình Ảnh (19)</button>
+                        </div>
+                    </div>
+
+                    <div class="comment-product">
+                        <ul>
+                            <li>
+                                <div class="row comment-bottom">
+                                    <div class="col-xl-1 col-md-1 avatar">
+                                        <img src="./img/avatar.png" alt="">
+                                    </div>
+                                    <div class="col-xl-11 col-md-11">
+                                        <span class="customer">khachhang1</span>
+                                        <div class="customer-rate">
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                        </div>
+                                        <blockquote class="blockquote">
+                                            <p class="messenger">Hàng chính hãng, đã đăng kí bảo hành trên trang chủ Bosch, chất lượng thì không cần lo nghĩ.</p>
+                                            <footer class="blockquote-footer"><i>Khách hàng vip</i></footer>
+                                          </blockquote>
+                                          <p class="time">14/06/2020 - 15h30 pm</p>
+                                    </div>
+                                </div>
+                                <div class="row comment-bottom">
+                                    <div class="col-xl-1 col-md-1 avatar">
+                                        <img src="./img/avatar.png" alt="">
+                                    </div>
+                                    <div class="col-xl-11 col-md-11">
+                                        <span class="customer">khachhang2</span>
+                                        <div class="customer-rate">
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                        </div>
+                                        <blockquote class="blockquote">
+                                            <p class="messenger">Shop đóng gói quá đẹp và cẩn thận, nhắn tin có hồi âm hàng chính hãng, cầm cảm giác nặng chắc, giao hàng nhanh. Cảm ơn shop và giaohangnhanh.</p>
+                                            <footer class="blockquote-footer"><i>Khách hàng vip</i></footer>
+                                          </blockquote>
+                                          <p class="time">14/06/2020 - 15h30 pm</p>
+                                    </div>
+                                </div>
+                                <div class="row comment-bottom">
+                                    <div class="col-xl-1 col-md-1 avatar">
+                                        <img src="./img/avatar.png" alt="">
+                                    </div>
+                                    <div class="col-xl-11 col-md-11">
+                                        <span class="customer">khachhang3</span>
+                                        <div class="customer-rate">
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                        </div>
+                                        <blockquote class="blockquote">
+                                            <p class="messenger">Chất lượng tốt,  giao hàng nhanh,  đóng gói cẩn thận,  phục vụ tốt</p>
+                                            <footer class="blockquote-footer"><i>Khách hàng vip</i></footer>
+                                          </blockquote>
+                                          <p class="time">14/06/2020 - 15h30 pm</p>
+                                    </div>
+                                </div>
+                                <div class="row comment-bottom">
+                                    <div class="col-xl-1 col-md-1 avatar">
+                                        <img src="./img/avatar.png" alt="">
+                                    </div>
+                                    <div class="col-xl-11 col-md-11">
+                                        <span class="customer">khachhang4</span>
+                                        <div class="customer-rate">
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                        </div>
+                                        <blockquote class="blockquote">
+                                            <p class="messenger">Tốt, tôi rất hài lòng về sản phẩm này.</p>
+                                            <footer class="blockquote-footer"><i>Khách hàng vip</i></footer>
+                                          </blockquote>
+                                          <p class="time">14/06/2020 - 15h30 pm</p>
+                                    </div>
+                                </div>
+                                <div class="row comment-bottom">
+                                    <div class="col-xl-1 col-md-1 avatar">
+                                        <img src="./img/avatar.png" alt="">
+                                    </div>
+                                    <div class="col-xl-11 col-md-11">
+                                        <span class="customer">khachhang5</span>
+                                        <div class="customer-rate">
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                        </div>
+                                        <blockquote class="blockquote">
+                                            <p class="messenger">Tốt, tôi rất hài lòng về sản phẩm này.</p>
+                                            <footer class="blockquote-footer"><i>Khách hàng vip</i></footer>
+                                          </blockquote>
+                                          <p class="time">14/06/2020 - 15h30 pm</p>
+                                    </div>
+                                </div>
+                                <div class="row comment-bottom">
+                                    <div class="col-xl-1 col-md-1 avatar">
+                                        <img src="./img/avatar.png" alt="">
+                                    </div>
+                                    <div class="col-xl-11 col-md-11">
+                                        <span class="customer">khachhang6</span>
+                                        <div class="customer-rate">
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                        </div>
+                                        <blockquote class="blockquote">
+                                            <p class="messenger">Tốt, tôi rất hài lòng về sản phẩm này.</p>
+                                            <footer class="blockquote-footer"><i>Khách hàng vip</i></footer>
+                                          </blockquote>
+                                          <p class="time">14/06/2020 - 15h30 pm</p>
+                                    </div>
+                                </div>
+                                <div class="row comment-bottom">
+                                    <div class="col-xl-1 col-md-1 avatar">
+                                        <img src="./img/avatar.png" alt="">
+                                    </div>
+                                    <div class="col-xl-11 col-md-11">
+                                        <span class="customer">khachhang7</span>
+                                        <div class="customer-rate">
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                            <i class="icofont-star"></i>
+                                        </div>
+                                        <blockquote class="blockquote">
+                                            <p class="messenger">Tốt, tôi rất hài lòng về sản phẩm này.</p>
+                                            <footer class="blockquote-footer"><i>Khách hàng vip</i></footer>
+                                          </blockquote>
+                                          <p class="time">14/06/2020 - 15h30 pm</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="grid">
+                <div class="row pb-5">
+                    <div class="col-xl-3 col-md-3">
+                        <img class="footer-logo" src="./img/logo.png" alt="">
+                        <p>Đăng ký để nhận được được thông tin mới nhất từ chúng tôi.</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button"><i style="color: white;" class="icofont-send-mail footer-icon"></i></button>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-xl-3 col-md-3">
+                        <h4 class="pb-2 font-weight-bold">Liên Hệ</h4>
+                        <ul class="footer-list">
+                            <li style="color: #949292;" class="footer-item mb-3 pb-1">
+                                <i style="color: white; padding-right: 10px;" class="icofont-google-map footer-icon"></i>
+                                319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM
+                            </li>
+                            <li class="footer-item pb-1">
+                                <i class="icofont-ui-touch-phone footer-icon-menu"></i>
+                                <a href="" class="footer-link">0347.4703.96</a>
+                            </li>
+                            <li class="footer-item pb-1">
+                                <i class="icofont-email footer-icon-menu"></i>
+                                <a href="" class="footer-link">hieungochoang97@gmail.com</a>
+                            </li>
+                            <li class="footer-item pb-1">
+                                <i class="icofont-facebook footer-icon-menu"></i>
+                                <a href="" class="footer-link">hoangngochieu97</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-3 col-md-3">
+                        <h4 class="pb-2 font-weight-bold">Hỗ trợ</h4>
+                        <ul class="footer-list">
+                           <li class="footer-item pb-1"><a href="" class="footer-link text-white footer-link-hover">FAQ</a></li>
+                           <li class="footer-item pb-1"><a href="" class="footer-link text-white footer-link-hover">Chăm sóc khách hàng</a></li>
+                           <li class="footer-item pb-1"><a href="" class="footer-link text-white footer-link-hover">Vận chuyển và Đổi trả hàng</a></li>
+                           <li class="footer-item pb-1"><a href="" class="footer-link text-white footer-link-hover">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-3 col-md-3">
+                        <h4 class="pb-2 font-weight-bold">Thông tin</h4>
+                        <p>Trong những năm tới, người nostrud tập thể dục, khu học chánh có thể không hoạt động aliquip.</p>
+                        <ul class="social">
+                            <li class="social-item bg-primary"><a class="text-white" href=""><i class="icofont-facebook"></i></a></li>
+                            <li class="social-item bg-secondary"><a class="text-white" href=""><i class="icofont-instagram"></i></a></li>
+                            <li class="social-item bg-info"><a class="text-white" href=""><i class="icofont-twitter"></i></a></li>
+                            <li class="social-item bg-danger"><a class="text-white" href=""><i class="icofont-flikr"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="coder">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="text-center code-des">&copy Bản quyền thuộc về <a style="color: white;" href="">admin</a>. Thiết kế website: P103 Team</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
